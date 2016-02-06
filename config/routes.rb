@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  
+
+  root 'pages#home'  
 
   #rotta valida ma commentata
   #get 'pages/home'
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'pages#home'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
