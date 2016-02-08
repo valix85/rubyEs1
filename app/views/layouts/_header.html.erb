@@ -5,7 +5,19 @@
       <!-- <a href="#!" class="brand-logo">Logo</a> -->
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-      	<%= link_to "ABOUT", about_path %>
+      	<!-- <li><%= link_to "ABOUT", about_path %></li> -->
+
+        <% if user_signed_in? %>
+          <li><%= link_to "PROFILO", edit_user_registration_path %></li>  
+          <li><%= link_to "LOGOUT", destroy_user_session_path , method: :delete %></li>
+        <% else %>  
+        <li><%= link_to "LOGIN", new_user_session_path %></li>
+        <li><%= link_to "REGISTRAZIONE", new_user_registration_path %></li>
+        <% end %>
+
+
+ 
+
       	<!--
         <li><a href="sass.html">Sass</a></li>
         <li><a href="badges.html">Components</a></li>
@@ -14,7 +26,13 @@
     -->
       </ul>
       <ul class="side-nav" id="mobile-demo">
-      	<%= link_to "ABOUT", about_path %>
+      	<li><%= link_to "ABOUT", about_path %></li>
+        <% if user_signed_in? %>  
+          <li><%= link_to "LOGOUT", destroy_user_session_path , method: :delete %></li>
+        <% else %>  
+        <li><%= link_to "LOGIN", new_user_session_path %></li>
+        <li><%= link_to "REGISTRAZIONE", new_user_registration_path %></li>
+        <% end %>
       	<!--
         <li><a href="sass.html">Sass</a></li>
         <li><a href="badges.html">Components</a></li>

@@ -1,11 +1,22 @@
-<h2>Sign up</h2>
+
+<div class="row">
+<div class="col l6 offset-l3">
+
+
+<h4 class="center">Registrazione</h4>
+<br>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autocomplete: "on" %>
   </div>
 
   <div class="field">
@@ -21,9 +32,19 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <br>
+
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Iscriviti", class: "waves-effect waves-light btn btn-device" %>
   </div>
+
+  <br>
+
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
+</div>
+</div>
+
