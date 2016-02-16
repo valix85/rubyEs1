@@ -5,9 +5,10 @@
       <!-- <a href="#!" class="brand-logo">Logo</a> -->
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-      	<!-- <li><%= link_to "ABOUT", about_path %></li> -->
-
+      	<li><%= link_to "ABOUT", about_path %></li>
+  
         <% if user_signed_in? %>
+        <li><%= link_to 'NUOVO CONTENUTO', new_content_path %></li>
           <li><%= link_to "PROFILO", edit_user_registration_path  %></li>  
           <li><%= link_to "LOGOUT", destroy_user_session_path , method: :delete %></li>
         <% else %>  
@@ -27,7 +28,8 @@
       </ul>
       <ul class="side-nav" id="mobile-demo">
       	<li><%= link_to "ABOUT", about_path %></li>
-        <% if user_signed_in? %>  
+        <% if user_signed_in? %>
+          <li><%= link_to 'NUOVO CONTENUTO', new_content_path %></li>  
           <li><%= link_to "LOGOUT", destroy_user_session_path , method: :delete %></li>
         <% else %>  
         <li><%= link_to "LOGIN", new_user_session_path %></li>

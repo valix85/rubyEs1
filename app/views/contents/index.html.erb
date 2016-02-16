@@ -1,7 +1,55 @@
 <p id="notice"><%= notice %></p>
 
+<!--
 <h1>Listing Contents</h1>
+-->
 
+
+
+<div class="row">
+<% @contents.each do |content| %>
+<div class="col s3">
+<div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <%= image_tag content.cover.url, class:"activator" %>
+      <!-- <img class="activator" src="images/office.jpg"> -->
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><%= content.titolo %><i class="material-icons right">more_vert</i></span>
+      <div>
+        <div>Corso di <%= content.user.name if content.user %></div>   
+        <div class="right"><%= number_to_currency(content.price) %></div>     
+      </div>
+      <br><br>
+      <div class="center"><%= link_to 'Scopri di più', content, class:"btn" %></div>
+
+      <% if content.user == current_user %>
+      <br>
+      <hr>
+        <div class="center">
+          <span><%= link_to 'Modifica', edit_content_path(content) %></span> -  
+          <span><%= link_to 'Cancella', content, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+        </div>
+        <% end %>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><%= content.titolo %><i class="material-icons right">close</i></span>
+      <p><%= content.descrizione %></p>
+      <div>
+        <span><%= content.user.name if content.user %></span>   
+        <span class="right"><%= number_to_currency(content.price) %></span>     
+      </div>
+    </div>
+  </div>
+</div>  
+<% end %>
+</div>
+
+
+
+
+
+<!--
 <table>
   <thead>
     <tr>
@@ -20,7 +68,10 @@
         <td><%= image_tag content.cover.url(:thumb) %></td>
         <td><%= content.titolo %></td>
         <td><%= content.descrizione %></td>
-        <td><%= content.user.name if content.user %></td><!-- permette di saltare se non c'è il valore e non genera errore -->
+        <td><%= content.user.name if content.user %></td>
+-->
+        <!-- permette di saltare se non c'è il valore e non genera errore -->
+<!--        
         <td><%= content.price %></td> 
         <td><%= link_to 'Mostra', content %></td>
         <% if content.user == current_user %>
@@ -35,3 +86,4 @@
 <br>
 
 <%= link_to 'Nuovo', new_content_path %>
+-->
