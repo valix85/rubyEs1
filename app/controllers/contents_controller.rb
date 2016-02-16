@@ -16,7 +16,7 @@ class ContentsController < ApplicationController
   # GET /contents/new
   def new
     #@content = Content.new
-    #@content = current_user.cintentes, notice: "Contnuto inserito"
+    #@content = current_user.contentes, notice: "Contnuto inserito"
     @content = current_user.contents.build
   end
 
@@ -72,7 +72,7 @@ class ContentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def content_params
-      params.require(:content).permit(:titolo, :descrizione, :price, :cover)
+      params.require(:content).permit(:titolo, :descrizione, :price, :cover, :allegato)
     end
 
     def check_user
