@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%= notice %></p>-->
 
 <!--
 <h1>Listing Contents</h1>
@@ -8,14 +8,14 @@
 
 <div class="row">
 <% @contents.each do |content| %>
-<div class="col s3">
+<div class="col s12 m4 l3">
 <div class="card">
     <div class="card-image waves-effect waves-block waves-light">
       <%= image_tag content.cover.url, class:"activator" %>
       <!-- <img class="activator" src="images/office.jpg"> -->
     </div>
     <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4"><%= content.titolo %><i class="material-icons right">more_vert</i></span>
+      <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i><%= content.titolo %></span>
       <div>
         <div>Corso di <%= content.user.name if content.user %></div><br>   
         <div class="right"><%= number_to_currency(content.price) %></div>     
@@ -33,7 +33,7 @@
         <% end %>
     </div>
     <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4"><%= content.titolo %><i class="material-icons right">close</i></span>
+      <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i><%= content.titolo %></span>
       <p><%= content.descrizione %></p>
       <div>
         <span><%= content.user.name if content.user %></span>   
