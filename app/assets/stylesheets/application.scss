@@ -15,6 +15,10 @@
  */
 @import "materialize";
 
+html {
+    font-family: Arimo, GillSans, Calibri, Trebuchet, sans-serif;
+  }
+
 body {
     display: flex;
     min-height: 100vh;
@@ -81,3 +85,6 @@ body {
    .show-prezzo {font-size:1.7rem;}
 
    .btn-form {width:100%;}
+
+   .show-home-case {background:url('../img/1.jpg') #09a8b3 top center no-repeat; background-size: cover; padding:2rem 1rem;}
+   .show-home-case h1 {font-weight: bold; color:#EFEFEF; text-shadow: 0px 2px 4px rgba(32, 32, 32, 1);}
