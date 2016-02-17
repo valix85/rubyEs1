@@ -17,11 +17,11 @@
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4"><%= content.titolo %><i class="material-icons right">more_vert</i></span>
       <div>
-        <div>Corso di <%= content.user.name if content.user %></div>   
+        <div>Corso di <%= content.user.name if content.user %></div><br>   
         <div class="right"><%= number_to_currency(content.price) %></div>     
       </div>
       <br><br>
-      <div class="center"><%= link_to 'Scopri di più', content, class:"btn" %></div>
+      <div class="center"><%= link_to 'Scopri', content, class:"btn  lime accent-3   teal-text text-darken-4  " %></div>
 
       <% if content.user == current_user %>
       <br>

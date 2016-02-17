@@ -12,29 +12,33 @@
   <% end %>
 
   <div class="field">
+     <%= f.label :"Carica il contenuto che vuoi vendere" %><br>
+     <%= f.file_field :allegato %>
+  </div>
+<br>
+  <div class="field">
     <%= f.label :titolo %><br>
     <%= f.text_field :titolo %>
   </div>
   <div class="field">
     <%= f.label :descrizione %><br>
-    <%= f.text_field :descrizione %>
+    <%= f.text_area :descrizione, class:"materialize-textarea" %>
   </div>
   <div class="field">
-    <%= f.label :price %><br>
+    <%= f.label :prezzo %><br>
     <%= f.text_field :price %>
   </div>
   <div class="field">
      <%= f.label :cover %><br>
      <%= f.file_field :cover %>
   </div>
-  <div class="field">
-     <%= f.label :allegato %><br>
-     <%= f.file_field :allegato %>
-  </div>
+
   <br>
 
   <hr>
+  <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "SALVA", class:"btn btn-form" %>
   </div>
+  <br>
 <% end %>

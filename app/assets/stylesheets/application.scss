@@ -21,6 +21,8 @@ body {
     flex-direction: column;
   }
 
+  h1 {font-size:3rem;}
+
   main {
     flex: 1 0 auto;
   }
@@ -72,6 +74,10 @@ body {
 }
    /*END CUSTOMIZE FORM COMPONENT*/
 
+   .card .card-content .card-title {line-height: 28px;}
+
    .show-titolo{margin-top:0; font-size: 3rem;}
    .show-img {padding-right: 1rem;}
    .show-prezzo {font-size:1.7rem;}
+
+   .btn-form {width:100%;}
