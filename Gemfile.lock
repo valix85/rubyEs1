@@ -155,6 +155,9 @@ GEM
       json (>= 1.8.0)
     warden (1.2.6)
       rack (>= 1.0)
+    will_paginate (3.0.7)
+    will_paginate-materialize (0.1.2)
+      will_paginate (~> 3.0.6)
 
 PLATFORMS
   x86-mingw32
@@ -174,6 +177,8 @@ DEPENDENCIES
   turbolinks
   tzinfo-data
   uglifier (>= 1.3.0)
+  will_paginate (~> 3.0.6)
+  will_paginate-materialize
 
 BUNDLED WITH
    1.11.2
