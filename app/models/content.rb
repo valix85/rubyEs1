@@ -1,4 +1,8 @@
 class Content < ActiveRecord::Base
+
+	extend FriendlyId
+  	friendly_id :titolo, use: :slugged
+
 	belongs_to :user
 	
 	has_attached_file :cover, styles: { medium: "300x>", thumb: "100x>" } 
