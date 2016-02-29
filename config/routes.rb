@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   #get 'pages/about'
   get 'about' => 'pages#about'
 
+  post '/compra/:slug', to: 'transactions#create', as: :compra
+  get '/pickup/:guid', to: 'transactions#pickup', as: :pickup
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
