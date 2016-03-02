@@ -1,23 +1,19 @@
 class TransactionsController < ApplicationController
-Stripe.verify_ssl_certs = false
+#Stripe.verify_ssl_certs = false
 	def create
 		content = Content.find_by!(slug: params[:slug])
-		token = params[:stripeToken]
+		sale = content.sales.create(
+			amount: (content.price * 100).floor,
+			email_acquirente: current_user.email,
+			email_venditore: content.user.email,
+			stripe_token: params[:stripeToken]
+			)
+		sale.running!
 
-		begin
-			charge = Stripe::Charge.create(
-			    :card    	 => token,
-			    :amount      => (content.price*100).floor,
-			    :description => current_user.email,
-			    :currency    => 'eur'
-			  )
-
-			@sale = content.sales.create!(email_acquirente: current_user.email)
-			redirect_to pickup_url(guid: @sale.guid)
-
-		rescue Stripe::CardError => e
-			@error = e
-			redirect_to content_path(content), notice: @error
+		if sale.completed?		
+			redirect_to pickup_url(guid: sale.guid)
+		else	
+			redirect_to content_path(content), notice: @error		
 		end	
 	end
 	
