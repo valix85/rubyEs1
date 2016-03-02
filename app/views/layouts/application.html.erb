@@ -11,14 +11,23 @@
 
 <%= render "layouts/header" %>
 
-
+<div class="container">
+	<% flash.each do |type, message| %>
+	<script>
+	Materialize.toast('<%= message %>',4000);
+	</script>
+	<% end %>
+</div>
 
 
 <main class="container">
 <%= yield %>
 </main>
+<!--
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+-->
+
 
 <%= render "layouts/footer" %>
 
