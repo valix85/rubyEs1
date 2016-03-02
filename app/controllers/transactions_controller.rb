@@ -6,8 +6,7 @@ class TransactionsController < ApplicationController
 			amount: (content.price * 100).floor,
 			email_acquirente: current_user.email,
 			email_venditore: content.user.email,
-			stripe_token: params[:stripeToken]
-			)
+			stripe_token: params[:stripeToken])
 		sale.running!
 
 		if sale.completed?		
